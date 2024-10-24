@@ -1,6 +1,8 @@
 name: accessibility_lint
 description: A custom lint rule for accessibility.
 version: 0.0.1
+repository: https://github.com/MateuxLucax/accessibility-lint
+issue_tracker: https://github.com/MateuxLucax/accessibility-lint/issues
 
 environment:
   sdk: ^3.5.0

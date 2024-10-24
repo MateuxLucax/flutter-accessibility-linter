@@ -1,4 +1,4 @@
 ## 0.0.1
 
 - Initial version.
-- Add `
+- Add `avoid_icon_button_without_tooltip` rule.

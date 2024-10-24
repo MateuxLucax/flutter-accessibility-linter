@@ -1,6 +1,6 @@
 # Accessibility Lint
 
-[![License: GNU General Public License](https://img.shields.io/badge/License-GNU%20GPL-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
+[![License: Apache License 2.0](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](LICENSE)
 
 ![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
 ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)

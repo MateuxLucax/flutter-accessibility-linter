@@ -1,39 +1,41 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Accessibility Lint
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages). 
+[![License: GNU General Public License](https://img.shields.io/badge/License-GNU%20GPL-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages). 
--->
+![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A static analysis linter that helps developers create accessible Dart and Flutter applications by enforcing best practices for accessibility.
 
 ## Features
+- **Avoid Icon Button Without Tooltip**: Ensures all `IconButton` widgets have a `tooltip` property.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Installation
 
-## Getting started
+To add the accessibility linter to your project, run:
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```bash
+flutter pub add --dev custom_lint accessibility_lint
+```
+
+Then, add in your `analysis_options.yaml` file:
+
+```yaml
+analyzer:
+  plugins:
+    - custom_lint
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+To run the accessibility linter, run:
 
-```dart
-const like = 'sample';
+```bash
+dart run custom_lint
 ```
 
-## Additional information
+## License
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+This project is licensed under the GNU GPL License - see the [LICENSE](LICENSE) file for details.

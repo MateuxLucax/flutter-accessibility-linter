@@ -1,12 +1,13 @@
-import 'package:accessibility_lint/src/rules/avoid_icon_button_without_tooltip/avoid_text_without_semantic_fix.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/error/listener.dart';
 import 'package:custom_lint_builder/custom_lint_builder.dart';
 
-class AvoidIconButtonWithoutTooltipRule extends DartLintRule {
-  AvoidIconButtonWithoutTooltipRule() : super(code: _code);
+import 'avoid_icon_button_without_tooltip_fix.dart';
 
-  static const _code = LintCode(
+class AvoidIconButtonWithoutTooltipRule extends DartLintRule {
+  const AvoidIconButtonWithoutTooltipRule() : super(code: _code);
+
+  static const LintCode _code = LintCode(
     name: 'avoid_icon_button_without_tooltip',
     problemMessage: 'Avoid using IconButton without a tooltip.',
     correctionMessage: 'Specify a tooltip for the IconButton widget.',
@@ -18,15 +19,17 @@ class AvoidIconButtonWithoutTooltipRule extends DartLintRule {
     final ErrorReporter reporter,
     final CustomLintContext context,
   ) {
-    context.registry.addInstanceCreationExpression((node) {
-      final constructorName = node.constructorName.type.toString();
+    context.registry.addInstanceCreationExpression((
+      final InstanceCreationExpression node,
+    ) {
+      final String constructorName = node.constructorName.type.toString();
 
       if (constructorName != 'IconButton') return;
 
       bool hasTooltip = false;
       for (final Expression argument in node.argumentList.arguments) {
         if (argument is NamedExpression) {
-          final name = argument.name.label.name;
+          final String name = argument.name.label.name;
 
           if (name == 'tooltip') {
             hasTooltip = true;
@@ -42,7 +45,5 @@ class AvoidIconButtonWithoutTooltipRule extends DartLintRule {
   }
 
   @override
-  List<Fix> getFixes() {
-    return [AvoidIconButtonWithoutTooltipFix()];
-  }
+  List<Fix> getFixes() => <Fix>[AvoidIconButtonWithoutTooltipFix()];
 }

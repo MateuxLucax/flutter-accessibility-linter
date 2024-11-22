@@ -1,4 +1,5 @@
 import 'package:analyzer/dart/ast/ast.dart';
+import 'package:analyzer/error/error.dart';
 import 'package:analyzer/error/listener.dart';
 import 'package:custom_lint_builder/custom_lint_builder.dart';
 
@@ -11,6 +12,7 @@ class AvoidIconButtonWithoutTooltipRule extends DartLintRule {
     name: 'avoid_icon_button_without_tooltip',
     problemMessage: 'Avoid using IconButton without a tooltip.',
     correctionMessage: 'Specify a tooltip for the IconButton widget.',
+    errorSeverity: ErrorSeverity.WARNING,
   );
 
   @override
@@ -28,19 +30,18 @@ class AvoidIconButtonWithoutTooltipRule extends DartLintRule {
 
       bool hasTooltip = false;
       for (final Expression argument in node.argumentList.arguments) {
-        if (argument is NamedExpression) {
-          final String name = argument.name.label.name;
+        if (argument is! NamedExpression) continue;
+        final String name = argument.name.label.name;
 
-          if (name == 'tooltip') {
-            hasTooltip = true;
-            break;
-          }
-        }
+        if (name != 'tooltip') continue;
+
+        hasTooltip = true;
+        break;
       }
 
-      if (!hasTooltip) {
-        reporter.atNode(node, _code);
-      }
+      if (hasTooltip) return;
+
+      reporter.atNode(node, _code);
     });
   }
 

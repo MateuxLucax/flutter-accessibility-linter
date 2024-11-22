@@ -1,16 +1,20 @@
 name: accessibility_lint
-description: A custom lint rule for accessibility.
-version: 0.0.1
+description: This package provides a handful of lint rules to help and guide you through your development of mobile applications.
+version: 0.0.2
 repository: https://github.com/MateuxLucax/accessibility-lint
 issue_tracker: https://github.com/MateuxLucax/accessibility-lint/issues
 
 environment:
   sdk: ^3.5.0
 
+platforms:
+  android:
+  ios:
+
 dependencies:
   analyzer: ^6.7.0
-  custom_lint_builder: ^0.6.5
+  custom_lint_builder: ^0.7.0
   analyzer_plugin: ^0.11.3
 
 dev_dependencies:
-  lints: ^4.0.0
+  lints: ^5.0.0

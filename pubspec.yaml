@@ -1,6 +1,6 @@
 name: accessibility_lint
 description: This package provides a handful of lint rules to help and guide you through your development of mobile applications.
-version: 0.0.2
+version: 1.0.0
 repository: https://github.com/MateuxLucax/accessibility-lint
 issue_tracker: https://github.com/MateuxLucax/accessibility-lint/issues
 
@@ -18,3 +18,4 @@ dependencies:
 
 dev_dependencies:
   lints: ^5.0.0
+ 

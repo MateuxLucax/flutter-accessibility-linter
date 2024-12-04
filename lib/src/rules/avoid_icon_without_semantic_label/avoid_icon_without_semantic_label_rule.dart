@@ -4,15 +4,15 @@ import 'package:analyzer/error/listener.dart';
 import 'package:custom_lint_builder/custom_lint_builder.dart';
 
 import '../../utils/rule_utils.dart';
-import 'avoid_icon_button_without_tooltip_fix.dart';
+import 'avoid_icon_without_semantic_label_fix.dart';
 
-class AvoidIconButtonWithoutTooltipRule extends DartLintRule {
-  const AvoidIconButtonWithoutTooltipRule() : super(code: _code);
+class AvoidIconWithoutSemanticLabelRule extends DartLintRule {
+  const AvoidIconWithoutSemanticLabelRule() : super(code: _code);
 
   static const LintCode _code = LintCode(
-    name: 'avoid_icon_button_without_tooltip',
-    problemMessage: 'Avoid using IconButton without a tooltip.',
-    correctionMessage: 'Specify a tooltip for the IconButton widget.',
+    name: 'avoid_icon_without_semantic_label',
+    problemMessage: 'Avoid using icons without a semantic label.',
+    correctionMessage: 'Specify a semantic label for the icon widget.',
     errorSeverity: ErrorSeverity.WARNING,
   );
 
@@ -27,19 +27,19 @@ class AvoidIconButtonWithoutTooltipRule extends DartLintRule {
     ) {
       final String constructorName = node.constructorName.type.toString();
 
-      if (constructorName != 'IconButton') return;
+      if (constructorName != 'Icon') return;
 
-      final bool hasTooltip = RuleUtils.hasArgument(
+      final bool hasSemanticLabel = RuleUtils.hasArgument(
         node.argumentList.arguments,
-        'tooltip',
+        'semanticLabel',
       );
 
-      if (hasTooltip) return;
+      if (hasSemanticLabel) return;
 
       reporter.atNode(node, _code);
     });
   }
 
   @override
-  List<Fix> getFixes() => <Fix>[AvoidIconButtonWithoutTooltipFix()];
+  List<Fix> getFixes() => <Fix>[AvoidIconWithoutSemanticLabelFix()];
 }

@@ -10,7 +10,12 @@
 A static analysis linter that helps developers create accessible Dart and Flutter applications by enforcing best practices for accessibility.
 
 ## Features
+
 - **Avoid Icon Button Without Tooltip**: Ensures all `IconButton` widgets have a `tooltip` property.
+- **Add Haptic Feedback on User Interaction**: Ensures all interactive widgets have haptic feedback.
+- **Avoid Icon Without Semantic Label**: Ensures all `Icon` widgets have a `semanticLabel` property.
+- **Avoid Image Without Semantic Label**: Ensures all `Image` widgets have a `semanticLabel` property.
+- **Avoid Small Interactive Elements**: Ensures all interactive elements are large enough to be easily tapped.
 
 ## Installation
 

@@ -4,7 +4,7 @@ import 'package:custom_lint_builder/custom_lint_builder.dart';
 
 import '../../utils/fix_utils.dart';
 
-class AvoidIconButtonWithoutTooltipFix extends DartFix {
+class AvoidImageWithoutSemanticLabelFix extends DartFix {
   @override
   void run(
     final CustomLintResolver resolver,
@@ -19,11 +19,11 @@ class AvoidIconButtonWithoutTooltipFix extends DartFix {
 
         final String constructorName = node.constructorName.type.toString();
 
-        if (constructorName != 'IconButton') return;
+        if (constructorName != 'Image') return;
 
         FixUtils.addPropertyToReporter(
           reporter,
-          'tooltip',
+          'semanticLabel',
           node,
         );
       },
